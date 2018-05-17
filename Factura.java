@@ -9,21 +9,33 @@ public Class Super{
 	public void getProductos(){
 		Scanner lector = new Scanner(System.in);  
 		System.out.println("Digite cuantos productos quiere");
-		int cProd = lector.nextInt();
-		factura = new int[cProd][3];
-		System.out.println("Digite el producto que quiere: \n1: Papas \n2: Zanahoria\n3: Camote\n4: Brocoli\n5: Caca\n");
-		int in = lector.nextInt();
-		
+		try{
+			int cProd = lector.nextInt();
+			factura = new int[cProd][3];
+		}
+		catch(IOException ex);
+
 		for(int k = 0; k < cProd; ++k){
+			System.out.println("Digite el producto que quiere: \n1: Papas \n2: Zanahoria\n3: Camote\n4: Brocoli\n5: Caca\n");
+		
+			try{
+			int in = lector.nextInt();
+			}
+			catch(IOException ex);
+
 			System.out.println("Digite la cantidad que quiere:");
+			
+			try{
 			int c = lector.nextInt();
 			factura[factura.length][0] = in;
 			factura[factura.length][1] = c;
-			System.out.println("Digite el producto que quiere: \n1: Papas \n2: Zanahoria\n3: Camote\n4: Brocoli\n5: Caca\n");
-			in = lector.nextInt();
+			}
+			catch(IOException ex);
+			
 		}
 		lector.close();   
 	}
+
 	
 	private void asignarPrecios(){
 		boolean encontrado = false;
