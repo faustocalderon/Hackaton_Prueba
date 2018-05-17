@@ -32,15 +32,33 @@ public Class Super{
 			while(!encontrado){	
 				if(factura[i][0] == listaProductos[j][0]){
 					factura[i][2] = listaProductos[j][1];
+					encontrado = true;
 				}
 				j++;
 			}
 		}
 	}
 	
+	public int[][] getFactura(){
+		return factura;
+	}
+	
+	public void imprimirFactura(int total){
+		System.out.println("Producto\tCantidad\tPrecio unitario");
+		for(int i = 0; i<factura.length; ++i){
+			System.out.println(factura[i][0]+"\t"+factura[i][1]"\t"+factura[i][2]);
+		}
+		System.out.println("Total\t\t"+ total);
+	}
+	
+	
 	public static void main(String [ ] args){
 		Calculadora c = new Calculadora();
-
+		Super s = new Super();
+		s.getProductos();
+		s.asignarPrecios();
+		int total = c.calcularResultados(s.getFactura());
+		s.imprimirFactura(total);
 	}
 
 }
