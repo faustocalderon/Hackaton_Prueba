@@ -1,1 +1,3 @@
-hola
+public Class hola{
+	
+}
